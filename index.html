@@ -117,6 +117,14 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-4px);
   box-shadow: 0 12px 32px var(--shadow), 0 2px 6px rgba(28,18,8,0.1);
 }
+.card-sold {
+  opacity: 0.55;
+  filter: grayscale(40%);
+}
+.card-sold:hover {
+  transform: none;
+  box-shadow: 0 4px 20px var(--shadow), 0 1px 3px rgba(28,18,8,0.08);
+}
 .card .img-wrap {
   position: relative;
   width: 100%;
@@ -133,6 +141,7 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.4s ease;
 }
 .card:hover .img-wrap img { transform: scale(1.03); }
+.card-sold:hover .img-wrap img { transform: none; }
 .card .img-wrap .fallback {
   position: absolute;
   inset: 0;
@@ -171,6 +180,7 @@ a { text-decoration: none; color: inherit; }
   color: #8A7A68;
 }
 .badge-pending { border-color: var(--gold); color: var(--gold); }
+.badge-sold { border-color: #999; color: #999; text-decoration: line-through; }
 .footer {
   text-align: center;
   padding: 48px 24px 0;
@@ -189,7 +199,8 @@ a { text-decoration: none; color: inherit; }
 </div>
 
 <div class="stats">
-  <div><div class="stat-num">26</div><div class="stat-label">פריטים למכירה</div></div>
+  <div><div class="stat-num">33</div><div class="stat-label">פריטים למכירה</div></div>
+  <div><div class="stat-num">7</div><div class="stat-label">נמכרו</div></div>
   <div><div class="stat-num">6</div><div class="stat-label">קטגוריות</div></div>
 </div>
 
@@ -198,44 +209,27 @@ a { text-decoration: none; color: inherit; }
 <div class="grid">
 
 <a class="card" href="https://www.facebook.com/marketplace/item/27420998190888994/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/750570241_1065580586336343_3139490622916888256_n.jpg?stp=c36.0.428.428a_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_ohc=XDgWGvbaRmYQ7kNvwGjRQlQ&_nc_oc=AdqVJGeGdtTjgpp8IYwBKlh2SppwYh86FwOK9hbqCp5Sd6_9_blutjjeRb2jNmiBhGc&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQD__NjRBI7_wbZIgXUCqAi2y9vxs6N7Ie2pIJtW1jKo9g&oe=6A6AEEBA" alt="LG C1 OLED 77"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/750570241_1065580586336343_3139490622916888256_n.jpg?stp=c36.0.428.428a_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_ohc=S-wRZKya-vMQ7kNvwF-FrY_&_nc_oc=AdrO15QBy3h5BATuW1fhnp4cAYw6GHu6oRtSK5Q_aawUsvD_cvLTjJkXIPyIGyNxLsU&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQEibWNOWUQDwNk8iCM0H7uhBki0rVd5thO_Bu_fJiiK0Q&oe=6A781DBA" alt="LG C1 OLED 77"></div>
 <div class="card-body">
-  <div class="card-title">טלוויזיה חכמה 77" LG C1 OLED</div>
-  <div class="card-detail">OLED77C16LA - HDR10 Pro, WebOS, AI ThinQ</div>
+  <div class="card-title">טלוויזיה חכמה "77 LG C1 OLED77C16LA</div>
+  <div class="card-detail">OLED HDR10 Pro WebOS AI ThinQ</div>
   <div class="card-price-row"><div class="card-price">₪10,500</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/28185012214437921/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/751542883_883791524795893_1499634456578674369_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=KquztVizQfMQ7kNvwEU97ST&_nc_oc=AdoHNODXIzV1ozwd-j870_qgqRpgKYHXkXyc2VU3ug-Hx260gNMGEa7KR7PdAvVbAGM&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQBbgTAvNeqzKPm47jycwB2ov-rs0HMgsyRi4SLgr9JNtQ&oe=6A6AD35E" alt="Sonos Arc"></div>
-<div class="card-body">
-  <div class="card-title">סאונדבר Sonos Arc</div>
-  <div class="card-detail">Dolby Atmos, 2022</div>
-  <div class="card-price-row"><div class="card-price">₪1,900</div><span class="badge">זמין</span></div>
-</div></a>
-
-<a class="card" href="https://www.facebook.com/marketplace/item/27666164786404428/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/731865199_1672852813972259_6867147011287164742_n.jpg?stp=c54.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=wb0bV4fe7OQQ7kNvwEiBtti&_nc_oc=Adp0rH21nvDF8meVnUD-D5S7_NpxOkzxaW62pCQL2pT6vTlXpndVVZTJgv9hikjlG1o&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQBYnzeBmOE9ekCcUVi6ZT9tAhVMFFpM-Bi8GYETIu0Omw&oe=6A6AD5DE" alt="Casio"></div>
-<div class="card-body">
-  <div class="card-title">אורגנית Casio CT-S300</div>
-  <div class="card-detail">רגישות למגע + מעמד + מעמד תווים</div>
-  <div class="card-price-row"><div class="card-price">₪700</div><span class="badge">זמין</span></div>
-</div></a>
-
-<a class="card" href="https://www.facebook.com/marketplace/item/27626447010374241/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/750873683_984948097867885_21140632274210586_n.jpg?stp=c45.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=o-icsCH-FoMQ7kNvwFU_Sj8&_nc_oc=AdpgDeFJ-NYKFGI0cSbiFo77JR_nvsvzwzmqaBAxBQgAMv2zIPUq-Jmxb_8IaC6_k0I&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQBMJUUj2VPrx3dNtq4QTxUU2b5a6Oz8qRQeMNX7zouRXA&oe=6A6AECFB" alt="Dell P2419H"></div>
-<div class="card-body">
-  <div class="card-title">מסך מחשב Dell P2419H</div>
-  <div class="card-detail">24" Full HD IPS - במצב מצוין</div>
-  <div class="card-price-row"><div class="card-price">₪350</div><span class="badge">זמין</span></div>
-</div></a>
-
-<a class="card" href="https://www.facebook.com/marketplace/item/37679043731686350/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/731754030_2565225437266757_396563449865592355_n.jpg?stp=c100.0.400.400a_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=WPXmRieUVfIQ7kNvwE1xape&_nc_oc=AdqKxN9wIdMDEGdKwNULJl9iz9E5k1N_T9hSwim7Gtln4WfXNgsZ9_DLjHyBdzH4R5I&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQCRVG1r1sZGbYACNIGqa2vCoftuz9GTteUcq3qRQz-vkA&oe=6A6AC1AC" alt="Samsung 22"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/37891659613758248/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/760494086_2091835985545658_5553521349106718725_n.jpg?stp=c0.0.400.400a_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=Bc84bwaQWr8Q7kNvwHvehlq&_nc_oc=AdrwB5lJGZMTBVPlEUwZeqOC4tWktgfI8CHd2ylhHGRcqYSrH4biscyJDvlGNUE19Ww&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQGiaGLNE6TBxo7IWbU-c8R0RAra9ioWzVhHT9Tq2zfYAw&oe=6A77EB42" alt="Samsung 22"></div>
 <div class="card-body">
   <div class="card-title">מסך מחשב Samsung 22" Full HD</div>
   <div class="card-detail">HDMI</div>
   <div class="card-price-row"><div class="card-price">₪200</div><span class="badge">זמין</span></div>
 </div></a>
+
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/751542883_883791524795893_1499634456578674369_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=EGVKgwZTAN4Q7kNvwFir0N8&_nc_oc=Adqz_Ul-iY6sD6o6dPN1FGHnoi4u3VzagfLvnv35FKcXRGDTgapRSHQ0MrvPrA9aITk&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQG8ZtVM2odC_keNRz8t3lZJB9AU3YutfWWdnbQ4JeVPwQ&oe=6A78025E" alt="Sonos Arc"></div>
+<div class="card-body">
+  <div class="card-title">סונוס דגם SONOS ARC</div>
+  <div class="card-price-row"><div class="card-price">₪1,900</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 </div>
 
@@ -244,40 +238,38 @@ a { text-decoration: none; color: inherit; }
 <div class="grid">
 
 <a class="card" href="https://www.facebook.com/marketplace/item/38151547211099140/" target="_blank">
-<div class="img-wrap"><img src="zanussi.jpg" alt="Zanussi ZDHF286H"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/756471594_1395363212439642_6895363663682625153_n.jpg?stp=c0.0.480.480a_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=_YrUrHdgUo4Q7kNvwE4rtds&_nc_oc=AdrussCsnWX4aoPRH3PRLEFqzE7IePUBeVjXgVQTxx7aGXwtqR1oH2h-Vt51GvFkqhE&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQG7geexcb0FmodYB2rkWJ53_btQ29q9k-sImlRX72I-4w&oe=6A77F764" alt="Zanussi"></div>
 <div class="card-body">
   <div class="card-title">מייבש כביסה Zanussi 8 ק"ג</div>
-  <div class="card-detail">קונדנסור, דגם 2025 - כמעט חדש</div>
+  <div class="card-detail">חדש</div>
   <div class="card-price-row"><div class="card-price">₪1,800</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/36604780842500597/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/732035949_2874720212928596_6064633149476115803_n.jpg?stp=c0.0.370.370a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=eCEig6753V8Q7kNvwHTTmV3&_nc_oc=AdoJjT2fVnAi7kIu0F4nsAI7IUieiny-vI45Rpl4l5InlDtjgc4xtczoZEv2d3UUrtU&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQChZQBIafzvxa2EfZAkWwisFR5WUaEhq8Rbkq1JtvuJIA&oe=6A6AC765" alt="DeLonghi"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/28161941716826774/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761516695_1630761532106008_747492029989739455_n.jpg?stp=c0.0.370.370a_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=OgiGfGnZbbUQ7kNvwFLp4W5&_nc_oc=AdoXzioQ3ITX3-K9tC6PbwEEKmrO5IfFnvEJjnZHh6P4V8Sa4WI1b36V1bHBNgMd5pg&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQEc7FMncfePg1mEPpf4z9jkW_EKEbXqoqQDi3M2JVQeow&oe=6A7806BD" alt="DeLonghi"></div>
 <div class="card-body">
-  <div class="card-title">מכונת אספרסו אוטומטית DeLonghi</div>
-  <div class="card-detail">ECAM 23.120.B</div>
+  <div class="card-title">מכונת אספרסו אוטומטית דלונגי Delonghi ECAM 23.120.B</div>
   <div class="card-price-row"><div class="card-price">₪850</div><span class="badge">זמין</span></div>
 </div></a>
 
-
 <a class="card" href="https://www.facebook.com/marketplace/item/28181234431468695/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/752279098_4537661529802125_1050328473010464685_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=Ouj_OjK9GZoQ7kNvwGLZGcS&_nc_oc=AdrJcTDlCGwcdytdCIXvdEUSDqYZOXLB9xnFtqKJ1GtldSzn2MW43jSFiqd_SY_7Xrw&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQDYY22CuSkG2s8A9tlHvubVm4ROkn2go7JYNkzm9fWkGw&oe=6A6AC7B4" alt="Chromex"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/752279098_4537661529802125_1050328473010464685_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=uXJ3EWcWzsEQ7kNvwFKywVi&_nc_oc=Adqx93BMkDrCPawz6maNqg04iH5x2fKHKAS3XDdjzhqZFjOj75FwYWFtLwU3vfGalEE&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQEKHPmV7ok9xGZL-AeGEgaDi86YJSBqQQYVtecYMR5UvQ&oe=6A77F6B4" alt="Chromex"></div>
 <div class="card-body">
   <div class="card-title">מיקסר מקצועי Chromex SM-1200</div>
   <div class="card-detail">1200W - כולל קערת נירוסטה</div>
   <div class="card-price-row"><div class="card-price">₪350</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27375981452064073/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/733737242_1015314177653193_9138760418453159526_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=hqy3coJpXWcQ7kNvwGdCWUl&_nc_oc=AdqtR_3JKrCLG5FwYTMzWDbR6zADJsdvCt3bo6bNAodBmzRSoWjz2QpV28MQelkbwnQ&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQAMJF30LKRTnclJUbmekMyF3S-cHYTok1E8l3GSxunoFg&oe=6A6AE783" alt="Morphy Richards"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27445957575107365/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/762467006_1552759643257777_1869000780729167283_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=7S6YBOp4XpMQ7kNvwEtPoQv&_nc_oc=Adr6Ev3PEpF23DTP6J6tfPdZTKoALHtGWoDfOxoZIzy5kzxFRfly3BWa-Fbxd_wXq30&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQHeHW1KT08DeF4R-UWzb6nhHQAWtQ_qAd2GzbUcJ8m5Gg&oe=6A781A0C" alt="Morphy Richards"></div>
 <div class="card-body">
-  <div class="card-title">תנור שולחני Morphy Richards 44454</div>
+  <div class="card-title">Morphy Richards 44454 - טוסר אובן</div>
   <div class="card-detail">1500W</div>
   <div class="card-price-row"><div class="card-price">₪350</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27348414798155456/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/732164839_1597462415108537_7356560968874407173_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=w08bImd-E8AQ7kNvwFVNGh7&_nc_oc=AdqbVLGzTcmSJRnDk6aPPv1P2hQe3xDcTjHY3Y5wnqClK4QKGwyTrPYRhlV3kqH5kfM&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQAe-Mbmkie_qLek_yOzHz-s9Fb3EGIFBSk4lRcKAXzfmQ&oe=6A6ADAC9" alt="Samsung microwave"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27737057445977566/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/761164967_4012714592196147_9202807096043290284_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=utdXHfe6lW8Q7kNvwHYH_70&_nc_oc=AdqUIHCwQ6MxqKm4P0qr3P5heBajCpXmXNMGtobjlGWBoNZHqyUC2nYitoguf1-NOmc&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQHDvqugwnSGyiejJtOHIYgb31jlqghNsReFzP767OIfNA&oe=6A77ED42" alt="Samsung microwave"></div>
 <div class="card-body">
   <div class="card-title">מיקרוגל Samsung לבן</div>
   <div class="card-detail">פנים קרמיקה</div>
@@ -285,73 +277,127 @@ a { text-decoration: none; color: inherit; }
 </div></a>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/28283424744575736/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/755405296_1712327950038552_2494358691901537945_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=nAkkRVfjAA0Q7kNvwEUzkIG&_nc_oc=AdqjNUXNtoub4L_fzVgc_cxMWYGP3peUyzClDxqKnlM1UZzpA3dYUpOFavDMR2_Ur6E&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=vnPwex9cqsjf5WaJZZD2cw&_nc_ss=7b2a8&oh=00_AQADz4gv2FLwvt-AzMWyhPE_BXV4uEtrum4eKJsYkhYHOA&oe=6A6AE005" alt="Braun"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/755405296_1712327950038552_2494358691901537945_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=og8Tkuh4rewQ7kNvwEhUKZA&_nc_oc=AdpaF8l5abhyxNTP9kYSTOXkOOqZoFop0hovd8uJML7a_wKiPuFutRK7-6VLlK-PLrk&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQEC8GJYaS3fBBeCkLCuifOrKzz6fC3Xe_N573pGQfJ1lg&oe=6A780F05" alt="Braun"></div>
 <div class="card-body">
   <div class="card-title">מעבד מזון Braun CombiMax 650</div>
-  <div class="card-detail">600W, 14 מהירויות</div>
+  <div class="card-detail">600W</div>
   <div class="card-price-row"><div class="card-price">₪150</div><span class="badge">זמין</span></div>
 </div></a>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/27933654126263907/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/756471597_1031727696396830_5561284001270166152_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=4nDAsnklTpwQ7kNvwGuiCMM&_nc_oc=Adozpa3W2WiQQYMow-Q6zccee6GGicWvSqtNqB2MmpdfNB8xy8ipc_8-E0G2bwrVlwI&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=vnPwex9cqsjf5WaJZZD2cw&_nc_ss=7b2a8&oh=00_AQCuVjF4XVowExFgpumxy6YRqADOhS3hiQnlkKc7_kxsfQ&oe=6A6AD248" alt="Philips AVENT"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/756471597_1031727696396830_5561284001270166152_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=HUL_EbjyAnsQ7kNvwGBreum&_nc_oc=AdpaVzmr0fKFw5rIf8GQ1J7NSfQc5cg6CestpH4dzr0TnZAjPKctH_hrRVMPDuYh8Gk&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQEzSRKvn7Nomm3-Q0Ix_-DS5jeG8RZ2MDHAKJdqYOQFjA&oe=6A780148" alt="Philips AVENT"></div>
 <div class="card-body">
   <div class="card-title">מאדה ובלנדר Philips AVENT לתינוקות</div>
-  <div class="card-detail">עם קופסה מקורית</div>
   <div class="card-price-row"><div class="card-price">₪150</div><span class="badge">זמין</span></div>
 </div></a>
 
-</div>
-
-<!-- ═══ כלי בית ═══ -->
-<div class="category-title">כלי בית</div>
-<div class="grid">
-
 <a class="card" href="https://www.facebook.com/marketplace/item/27527827190171845/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756045800_1889192308861963_6702045330583056424_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=jD-6dARFf_YQ7kNvwHwcW0o&_nc_oc=AdpyW4TJZHYQOfM2YJgopt-babis-kok9h0NGFpZZdCiD5zCfwPyGtaN9_F1MDGLlOM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQBR_ETFwDshFfe8CeXjCrpkkTPzSpS2fR0dWIFmONLc6g&oe=6A6AE84E" alt="CorningWare"></div>
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756045800_1889192308861963_6702045330583056424_n.webp?stp=c0.0.400.400a_dst-webp&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=URpbC5N_aWMQ7kNvwEJmE8E&_nc_oc=AdrpLk7FsXTvbtaNwNc8GAfwFjNAvubzp4YDJIltHAEwK6e3gduEDsDo-qxRIk0v0p8&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQGwmdOlCbaaABl5CrCDAuAC_USvLrE7FdreB2KR0Z4aig&oe=6A78174E" alt="CorningWare"></div>
 <div class="card-body">
-  <div class="card-title">סט 2 סירי CorningWare French White</div>
-  <div class="card-detail">1.4L + 2.3L עם מכסים</div>
+  <div class="card-title">סט 2 סירי CorningWare French White עם מכסים</div>
   <div class="card-price-row"><div class="card-price">₪120</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27742067218786581/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/756471613_1538215007163085_1091374094348831565_n.jpg?stp=c0.68.526.526a_dst-jpg_p526x395_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=EcK4Xj2dXg0Q7kNvwFWDZos&_nc_oc=Adrxz84fOyoJLpklNoyrK5TuJRYdzOWHZiB8CC4bbNak3iCeu990b4DHt2skWfG_z44&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQAhfGm3oO7CvxsJZltUgs6kjf5h6ZMv8DpOiVt02j47bA&oe=6A6AE73D" alt="Luminarc"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27978019368495179/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/764499856_1785069099347897_1175426475478714721_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=2wzP2rVVYzYQ7kNvwEZTMgf&_nc_oc=AdrLifZv3WMvQyk3lT8giuO4qBjFZCfv4s68b_AeEi1UrjxV4WttBtPe9aBIl_x6zig&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQFdT8MNS6MC9TD2DHGv9TOBg5Z4IY5Z56rFob7aRbf5cg&oe=6A77F559" alt="Mastrad"></div>
 <div class="card-body">
-  <div class="card-title">כוסות יין Luminarc Versailles 36cl</div>
-  <div class="card-detail">סט 6 כוסות</div>
+  <div class="card-title">סט Mastrad להכנת רביולי וכיסוני בצק</div>
+  <div class="card-detail">10 חלקים</div>
+  <div class="card-price-row"><div class="card-price">₪90</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/27742067218786581/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/756471613_1538215007163085_1091374094348831565_n.jpg?stp=c0.68.526.526a_dst-jpg_p526x395_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=qmk7kZiMMsAQ7kNvwH0bzC6&_nc_oc=AdrSiC4KC385ivfc1oquiRb3-_8w5OiT4RfgMzXBGYrjEhijzjRKaHOMq0H7aqnfIVQ&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQGnJHEk6mjCElZnk4tzhJzBO5uBqJ-3OsM83Fjk61yvvg&oe=6A78163D" alt="Luminarc"></div>
+<div class="card-body">
+  <div class="card-title">Luminarc Versailles 36 cl Large Wine Glass</div>
+  <div class="card-detail">6 כוסות יין</div>
   <div class="card-price-row"><div class="card-price">₪80</div><span class="badge">זמין</span></div>
 </div></a>
 
+<a class="card" href="https://www.facebook.com/marketplace/item/27501610606128646/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/755381361_2990914377928263_5004124314269774824_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_ohc=reTQUPV02jQQ7kNvwHX1E0r&_nc_oc=Ador1F2mpdGAfypZk9gNKE66jHfP8sjbsiDfDx9Zf4qSgC1YfE8Qejjvm7CCpamuU9c&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQHCjz3vENGw1Ed6aimqfV50XoSUCw0s95YhId8v_Kdm-w&oe=6A781179" alt="Pizza peel"></div>
+<div class="card-body">
+  <div class="card-title">משטח פיצה מעץ עם ידית</div>
+  <div class="card-price-row"><div class="card-price">₪30</div><span class="badge">זמין</span></div>
+</div></a>
 
 </div>
 
-<!-- ═══ רהיטים ═══ -->
-<div class="category-title">רהיטים וכיסאות</div>
+<!-- ═══ ריהוט ═══ -->
+<div class="category-title">ריהוט וכיסאות</div>
 <div class="grid">
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27636752039288983/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/733751599_980623424792468_1676467570417570985_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=BhtrF5UMmgQQ7kNvwHeJGGe&_nc_oc=AdpAHS_5uD1-05JsZ4-r_frUdThQ3ywxlvUJE71gFnyoz09_kbhEqppR10v1Jr0loas&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=6_f6fBKEgXSUhOsoAJVSuA&_nc_ss=7b2a8&oh=00_AQApswzOsMQAMO2CkAy556qOv2Zdz0GDGhCzWJsSXtW6sg&oe=6A6AE647" alt="Ergotherapy"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27047654394908787/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761645618_2130084040873439_7279376161410796237_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=w7IYLcdM1ewQ7kNvwG2znwe&_nc_oc=AdptZvMV79nXNjDfhVueFza8W_PSzVpEoyLfYrWrW4CThxAc8Guz6xHL2JxIhbHjOvA&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQGzpr_-s-bMziaqUir0L3SrnIby63F5PE5Dwd-lEq776Q&oe=6A781779" alt="IKEA KIVIK"></div>
 <div class="card-body">
-  <div class="card-title">כסא ארגונומי Ergotherapy NetOne High-Back</div>
+  <div class="card-title">ספה פינתית IKEA KIVIK אפורה בהירה עם שזלונג</div>
+  <div class="card-price-row"><div class="card-price">₪1,600</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/27227962383550283/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761765440_1921832778491177_5687119008157517949_n.webp?stp=c0.0.526.526a_dst-webp_p2048x2048&_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_ohc=6CuHNK-9SN8Q7kNvwG57noh&_nc_oc=AdoNP7dFTFL0jrZdjVAemtqrCR5H54rMmCOhtMU4iFxagb1jBtxG6t6fAZzcTB2ydoU&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQEZ7XgKA55bi91-CdUyFJtTz_peZ72wzX7xrTNqu_H9yA&oe=6A780B26" alt="Ergotherapy"></div>
+<div class="card-body">
+  <div class="card-title">כסא משרדי ארגונומי Ergotherapy NetOne High-Back</div>
   <div class="card-detail">גב רשת</div>
   <div class="card-price-row"><div class="card-price">₪1,200</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27494309286895753/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/743841290_1906378000472012_8781383017592907282_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=Pc0lCpoux7wQ7kNvwEJtNhz&_nc_oc=AdqtudIPZKWyZ5xCA83i0yhF9IYCWGYu-uacIawPUcMkp14Zh9iOL_vA8f_y3yKMfV0&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQA5d0vm5FNhmioVFzaMmg4lAiBvjP8FiyPdP0kYy-VUlQ&oe=6A6AD9AD" alt="Office chair"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/28622181837368450/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/762440475_2574990722951047_2585987712257890764_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=VjrQyer_9PgQ7kNvwFn7LMC&_nc_oc=AdozsKpGj5z-qPiQWmDrfX4W5TwnQAkRQX94WFkBjJnOYTfRatYdx9I59eI-K4i573I&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQHkX4Dq2kmUIAxqJixMu6kQ8T2jbz7PmPS_xSB_bBxZAQ&oe=6A780182" alt="Bar stools"></div>
 <div class="card-body">
-  <div class="card-title">כיסא משרדי שחור דמוי עור</div>
-  <div class="card-detail">עם משענות ידיים</div>
-  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge">זמין</span></div>
+  <div class="card-title">5 כיסאות בר שחורים מודרניים לאי מטבח</div>
+  <div class="card-price-row"><div class="card-price">₪1,000</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/36679973611648084/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/733655758_1560504558791979_8112174224021320778_n.jpg?stp=c58.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=fmg4A1f0Fm0Q7kNvwGdB_NE&_nc_oc=AdptqpJnsZkuLYX5Q9UiyfRGMHkODjQ4ohaWFq1KxWGRd2wYQ88saUl4IBBGRKDyRrY&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQBdoG-oERNlrq2gNtIxRdLrvmL9cJMnGEzxCJJklvEudw&oe=6A6AD13F" alt="SVENSAS"></div>
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/761696139_2307000373204790_2399906213693788967_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=ABECi-a8Bh0Q7kNvwGI_8-y&_nc_oc=AdodMwSQHBmIyjMK3S_EjRu4yozHTQ32ci-nZZHjNE5z4QTRFDCo9Zei1wH1_gcB2bg&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQGvrBDYNeMWqiSVuq1w_DFTiDhQzvTfMMHSuPFXcrVgeQ&oe=6A7815B8" alt="TV unit"></div>
 <div class="card-body">
-  <div class="card-title">לוח מודעות IKEA SVENSAS לבן</div>
+  <div class="card-title">מזנון טלוויזיה מעוצב בגוון אלון ולבן</div>
+  <div class="card-price-row"><div class="card-price">₪700</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/28057843957183691/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760262792_1716655942876059_456607344163593174_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=UOJfEaxM5F0Q7kNvwHtZh3R&_nc_oc=AdrYMjblpzgd73qZBXtfhKkw-iwWbMufuT3nl9UsNycIVSAxd4zP-yuKIzGJHHESuYI&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQEAi36_WsnxklRfe0Nz4moA_8sY86oOzdt7bj1sO2PLmw&oe=6A77FCF4" alt="Changing table"></div>
+<div class="card-body">
+  <div class="card-title">שידת החתלה</div>
+  <div class="card-price-row"><div class="card-price">₪380</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/28568977176038634/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/760505141_1762937715019773_4917473792435877253_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_ohc=4_g_690bxuUQ7kNvwH4Hsj9&_nc_oc=Adr7RPgOUiNs0lV_4VVg-oTUroyPV6PcS_e3cEez7Jbsjm8RZwnCqxv47vUPfGQkkrk&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQFWoBPEMe-uPtQS_UNMsLySH-Yvmh93qmcfGzOZce81uw&oe=6A781415" alt="Entry bench"></div>
+<div class="card-body">
+  <div class="card-title">ספסל כניסה עם מושב מרופד (מבית Ubject)</div>
+  <div class="card-price-row"><div class="card-price">₪370</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/28330499346557227/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/763214678_2132496094332825_1910924715389566015_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=QmIuJUI79zcQ7kNvwHuneV4&_nc_oc=Adr_jbau8SyJYlO4uo9zWdboYGWpdtZfzQBJcErEJTWM89bOKQa8r8kpS35wydfGUzw&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQGQqZdI6s4vgHpCMy0bbn8Ym8oSU1nuDf-WGmX_RdD89Q&oe=6A780851" alt="SMUSSLA"></div>
+<div class="card-body">
+  <div class="card-title">SMUSSLA שידת לילה/יחידת מדפים, לבן</div>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/28130539826632480/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761563005_3981543945478870_7951355784098632672_n.jpg?stp=c90.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_ohc=eiHfnOPykuYQ7kNvwEZ9vPf&_nc_oc=AdoK6mL7Ai6Uz6BA0-nmnIrq9gg7SnyWs3X3B3iVbU8ZbROeFXEuDffvhciPME31YjM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQH51A_fibmelDn_B6s9Vv7cahP_1QcaFeXuyHCdDMRIrg&oe=6A77FD75" alt="Bamboo table"></div>
+<div class="card-body">
+  <div class="card-title">שולחן במבוק מתקפל ומתכוונן למחשב נייד</div>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/27672600859028228/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/761578196_1018314281098769_4916249959406742458_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=J6E5mgjlJ-UQ7kNvwExcrnJ&_nc_oc=AdqO9TZXA4BHYLpcu1NYKGAC-X8mtIPtQtrPSfEeuemwtnVzJehevEM78vp2oz3mfWw&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQF2Rsv20cfxITw-BCy8Also6JHhnhZ1v-A0kLEwMVvm-A&oe=6A77F55E" alt="SVENSAS"></div>
+<div class="card-body">
+  <div class="card-title">לוח מודעות IKEA SVENSÅS לבן</div>
   <div class="card-detail">40x60 ס"מ</div>
   <div class="card-price-row"><div class="card-price">₪50</div><span class="badge">זמין</span></div>
 </div></a>
+
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/750633805_1917511509633074_7247218569401683131_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=9vy25-LsGxAQ7kNvwEwZ_Uy&_nc_oc=AdrgvNN7nX-0kjb2-6-yWoLhc3O_njXblDgBCoctWAwuXZfM1B_2sbaITI5q8FEXXGQ&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQFoUnmZzwBcUJehdh6q72_RhAM0OsOHCpYhg9NkGswwxQ&oe=6A77F5C7" alt="IKEA stool"></div>
+<div class="card-body">
+  <div class="card-title">שרפרף עץ איקאה</div>
+  <div class="card-price-row"><div class="card-price">₪85</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 </div>
 
@@ -360,90 +406,130 @@ a { text-decoration: none; color: inherit; }
 <div class="grid">
 
 <a class="card" href="https://www.facebook.com/marketplace/item/27964427099912578/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756471492_1040698144998063_7201006890740015692_n.jpg?stp=c0.0.500.500a_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=MYQlzleVDZsQ7kNvwFRppR3&_nc_oc=Ado012v8ZWMARG6ZOk6qi6w3II625nFKw9A-j0naTUx-_XvxPuW6azLxg36z-uJC7Hk&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=qaKMkeB2E2KEkvL5_fSQXw&_nc_ss=7b2a8&oh=00_AQDJhg5xxo_TYjKQW43jS_RKJ1KVOdhQnEIrihOiifZXPA&oe=6A6BA117" alt="סט מיטת ילדים סגל קידס"></div>
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756471492_1040698144998063_7201006890740015692_n.jpg?stp=c0.0.500.500a_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=WY9ZFOGfJ30Q7kNvwFKZ1Yy&_nc_oc=AdqD2SjemnweyFzjbglkmI8al9ykLaJJcqndgpIc3wfT261cgeeW8kq4l3q1OxcwQ0c&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQGNVF4c-apuaUf9RCbZWxG20jpZQhvdKa1pWOuFnA298g&oe=6A77EF17" alt="Kids bed set"></div>
 <div class="card-body">
-  <div class="card-title">סט מיטת ילדים פאן לבן + מיטת חבר + מזרן</div>
-  <div class="card-detail">סגל קידס, MDF + רגלי עץ מלא, מעקה בטיחות</div>
+  <div class="card-title">סט מיטת ילדים פאן לבן + מיטת חבר לבן + מזרן - סגל קידס</div>
   <div class="card-price-row"><div class="card-price">₪1,300</div><span class="badge">זמין</span></div>
 </div></a>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/26813458778328339/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-6/752668184_10164442036189451_8387514461280333934_n.jpg?stp=dst-jpg_tt6&cstp=mx224x224&ctp=s224x224&_nc_cat=105&ccb=1-7&_nc_sid=ca4098&_nc_ohc=u8ZHuwRCHucQ7kNvwEtODRt&_nc_oc=Adot_94fTCv0SklZKFf4OW2dE6J1-ufOp2e_sK1QPVkUPaL5fhrukulurqmwY8xrkMY&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQA6yxGiVQeVoXwpQ_pUl0gzn_CIrXyb13SBGSojvPxFTg&oe=6A6AE776" alt="Pyramid"></div>
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-6/752668184_10164442036189451_8387514461280333934_n.jpg?stp=dst-jpg_tt6&cstp=mx224x224&ctp=s224x224&_nc_cat=105&ccb=1-7&_nc_sid=ca4098&_nc_ohc=4TQEGjkTXSoQ7kNvwFI-g4M&_nc_oc=AdoJgX8L6cd4EoYpbHaqooE8dbDzTzuNIOqMjyg6QuqWrW0casiy4Xck5bj9YQyXNZU&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQGKdZZ5WSbUH9I9T68jceKFKK7_qmFRtSjdETHB_F-hug&oe=6A781676" alt="Pyramid"></div>
 <div class="card-body">
-  <div class="card-title">פירמידת הקסם דגם "ג'ינסי"</div>
-  <div class="card-detail">מבנה טיפוס וגלישה לילדים</div>
+  <div class="card-title">פירמידת הקסם דגם "ג'ינס'</div>
   <div class="card-price-row"><div class="card-price">₪600</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27099559953072863/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/743933591_1010409531793669_3464422144637289508_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=SCskbMdWkfsQ7kNvwFL48cR&_nc_oc=AdpVD4mLEXlwZuZ28IwiomPbG3qXyw-IMLisQIsAdpHSwquosZct8glos4_VxyYXER0&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQAwA57h_zv5v8afoCyqTmyPGVDxNasspsPN2WHyo4nQpw&oe=6A6ACC14" alt="BabyBjorn"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/37361126480198923/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761420687_1017559217817653_7232291036022761029_n.jpg?stp=c0.0.400.400a_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=OQbCEHXtDu4Q7kNvwEcHcRg&_nc_oc=AdpkOCDdetaXuReII0jgsCVcgSdlLLx9GxeIo6uYFhxQ6AAqBPj2dBnwkKkJVBQ8q9w&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQEuNxEpjCzicc2edVeZlkxBANKWk6Q5hv9r2q89BQI2qw&oe=6A780EF6" alt="Diamond stroller"></div>
 <div class="card-body">
-  <div class="card-title">טרמפולינת תינוק BabyBjorn</div>
-  <div class="card-detail">כמו חדש</div>
-  <div class="card-price-row"><div class="card-price">₪600</div><span class="badge">זמין</span></div>
+  <div class="card-title">עגלת תינוק משולבת דגם דיימונד אינפנטי</div>
+  <div class="card-price-row"><div class="card-price">₪450</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27625544220420873/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/744251149_2509938319511187_6415254805073907870_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=q1mANai5j3YQ7kNvwG1n80z&_nc_oc=AdqoEwsjpsJX4CPO8-7nqyDm79UDLTaD3bHgkFcSBNFb6xkBUnhN4aHuuoSef9dEjVg&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQA2G5fyC11IRp_CK7sxxwAQc_S1Os3ov5F96UhePxG8_w&oe=6A6AE60D" alt="Maxi-Cosi"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/26037370092627730/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/763299078_2538251483263166_2611152003291111298_n.jpg?stp=c150.0.141.141a_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=XbWB50C84FQQ7kNvwEqRrQT&_nc_oc=AdreWx0Z5SEf0_Evhmid6NA3v4GNo4YHKNL8YXpieuZWOZ-SLKwYl0zXUIHD9kvXsaY&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQEVzO_4U8JiKqgsqJ3OyZsUuWqJ2N3RPyTy6UVhD1wpBg&oe=6A77F119" alt="Toddler bed"></div>
 <div class="card-body">
-  <div class="card-title">סלקל Maxi-Cosi</div>
+  <div class="card-title">מיטת מעבר לילדים + מזרון נושם</div>
+  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge">זמין</span></div>
+</div></a>
+
+<div class="card">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/763618465_1749412833176385_2822460381295272573_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_ohc=l4n0my7ZJkIQ7kNvwGm4f-Q&_nc_oc=AdpVcZYGhU6ud8TjQbZlcS_vURMZCCaF4mDY8AXUj4pkAA9n__vST-U3wWzyW1RrkhQ&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQGgcW3rmTTnA9dELTt6rYwlpuUx9NW1kJA59xz8eM-MCQ&oe=6A780B3B" alt="Melissa &amp; Doug ice cream"></div>
+<div class="card-body">
+  <div class="card-title">מליסה ודאג - דוכן גלידה מעץ לילדים</div>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge badge-pending">ממתין</span></div>
+</div></div>
+
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/762447695_1019586787528670_5019361682610921772_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=btuUUCUulkcQ7kNvwFtw7yo&_nc_oc=AdqyJz89kePUk4G1uM45EqjFGKqUZ2sxZ5rOsvq-c_FKYdogzW5kE3YbQ9b9ghbmeiU&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQE8jwysUAwGiBR7MsMqie6hz61G8o3Ky1e5npDA2QMr1g&oe=6A781048" alt="Playmager magnets"></div>
+<div class="card-body">
+  <div class="card-title">פליימאגר סט מגנטים לונה פארק 168 חלקים</div>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
+
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/753298861_1335974478300978_6512868611962733989_n.jpg?stp=c0.204.526.526a_dst-jpg_p526x395_tt6&_nc_cat=108&ccb=1-7&_nc_sid=247b10&_nc_ohc=JqGcRDYCqGQQ7kNvwGV2Dim&_nc_oc=AdqEjgWJ_GXpo3YlUmUJj-eB_SbSaqLEtxpnKCM47YAbg9Zr7jXE_RcULEc8i_ixBaE&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQGfmbMPuf7SEpc_yHccGYuaC7yiQpTZm-YG4qGwnyKSYQ&oe=6A77F746" alt="Kids sofa"></div>
+<div class="card-body">
+  <div class="card-title">ספונת נפתחת לילדים</div>
+  <div class="card-price-row"><div class="card-price">₪50</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
+
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/741324388_27172004415836036_8116323736319087215_n.jpg?stp=c158.0.526.526a_dst-jpg_p843x403_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=IRwnTDhTtnMQ7kNvwHR0MnE&_nc_oc=AdqNCNDfszTy91oNAEk0g5olRCngOSs3fIvgGjGRZXjTwcqGg7lFTvpDvV9Pwa_eKb0&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=Xi5oCbujNecEQqTmPbNmSQ&_nc_ss=7b2a8&oh=00_AQEqFFJLpTakr1EFNrWjkkU5TYWs1Yk8FZ0v3TF-1Y_tXg&oe=6A77EB36" alt="BabyDam"></div>
+<div class="card-body">
+  <div class="card-title">מחסום אמבטיה לתינוק (BabyDam)</div>
   <div class="card-detail">במצב מצוין</div>
-  <div class="card-price-row"><div class="card-price">₪400</div><span class="badge">זמין</span></div>
-</div></a>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
+</div>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27392216773779166/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/744273162_883210474849752_7289817279459855563_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=11lMNYnX9AMQ7kNvwFrxbQi&_nc_oc=AdoBYcVA99kzFz48Qy-UonwF6rgjSPiqv8FcCBcBZ-QPhs4U-EC2fx41NVLVUXchlEE&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=TNIhSDogHY9_QUql1hT5lg&_nc_ss=7b2a8&oh=00_AQCoixE1lEiTZAT2DNoYRhb4FIIXsZdjVIDzydpWv5UIJQ&oe=6A6AC64A" alt="SUNDVIK"></div>
+<!-- ═══ קמפינג וספורט ═══ -->
+<div class="category-title">קמפינג וספורט</div>
+<div class="grid">
+
+<div class="card">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761645618_1582011290218751_7298531582705485748_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=qev1rouuSg0Q7kNvwEY5vpO&_nc_oc=AdoAMRr3aJBLvxRKFAs6VF-uKIjyi93-zvyuIPzYHBAxbIfwbvRUChrJM2D5ZAqApA4&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQFzgT9pej_XBjIrjTIdSSAW3eOcBOEalITQFjKNvUqlWw&oe=6A781FEA" alt="Osprey Poco AG"></div>
 <div class="card-body">
-  <div class="card-title">2 כיסאות ילדים IKEA SUNDVIK לבן</div>
-  <div class="card-detail">נמכרים כזוג</div>
+  <div class="card-title">מנשא טיולים לתינוק Osprey Poco AG Premium</div>
+  <div class="card-price-row"><div class="card-price">₪750</div><span class="badge badge-pending">ממתין</span></div>
+</div></div>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/37342488352032799/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/764059776_1731551764822606_6772617681187733334_n.jpg?stp=c75.0.258.258a_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_ohc=JfwcQ8MblJMQ7kNvwFHHnjm&_nc_oc=Adp41-iItsFCoHWbB-tGTbEQsxaysWiaWGWsO82UgqwFaGeQdLQYbq7ZCVRvaZ9WPbM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQE7bo0L4o0l9B3xa6BaxJEmRKQfGZg-BzWf1yvwM8_ZCA&oe=6A77F7D0" alt="Bike rack"></div>
+<div class="card-body">
+  <div class="card-title">מנשא אופניים לרכב</div>
   <div class="card-price-row"><div class="card-price">₪200</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27045427705135354/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/741324388_27172004415836036_8116323736319087215_n.jpg?stp=c158.0.526.526a_dst-jpg_p843x403_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=A2eZPhmgD-UQ7kNvwECUsh1&_nc_oc=Adq-nsTO32PJvoCt10glTpaQv41QqJEUILpZx4dVOiBDVcfllA2iATuv7MaTG_ZcGuw&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=6hNH6DLV3uGj5ySaI5fIXQ&_nc_ss=7b2a8&oh=00_AQAcoAX08gcMBAiW2pFGLU4bh1f4Wm_7In2aQCz6-fj_5w&oe=6A6AF476" alt="BabyDam"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27855203080804805/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295006_1697750021529324_2958557119899498922_n.jpg?stp=c0.10.437.437a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=i62T2s9zQFUQ7kNvwEhetKv&_nc_oc=AdosOY3e_wy7gvHC-riV1w-8IXR8vYNAolM2eL6CTr8JrINDlQf9cU1nTnr0Pxwk6DI&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQGruNVwJGrabjs1kVfykYEG5K1l2ZHIfRX9XZfeJd3pIA&oe=6A77FF96" alt="Camping wagon"></div>
 <div class="card-body">
-  <div class="card-title">מחסום אמבטיה לתינוק BabyDam</div>
-  <div class="card-detail">במצב מצוין</div>
+  <div class="card-title">עגלת קמפינג מתקפלת Kamopot</div>
+  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/37331317599847392/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295036_1316641087215771_5793653696342001842_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=DJ7BK_hV4t0Q7kNvwEjETZJ&_nc_oc=AdpO2fdSqbHQEGZHjtb0Ssp1pFQ4BXorat9Q9r1-M78ynQU2BJ1SOgIoWhkI2m1iieE&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQHKLMteroo9pfHe4W3sa-RP-nbHNopUnbWU86ZcFW-HHg&oe=6A780716" alt="Foam mats"></div>
+<div class="card-body">
+  <div class="card-title">4 מזרני ספוג מתגלגלים לקמפינג ואירוח</div>
+  <div class="card-detail">נמכרים יחד</div>
+  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/28248389014779533/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761563003_1393559849372266_5033589090263472122_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=mceoNm9qp74Q7kNvwHEylNW&_nc_oc=Adqmfx10ytBaCTvCc4PFTacwPNAelybg0LYqKZ8mx62kRZ-7a0IEqs9DGKnIrwrxNHM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQEIRxczU5N34ymWg1_jJMZSkHqEr2sEzDmj5j8P0FEqlQ&oe=6A77F5EB" alt="ROCES rollerblades"></div>
+<div class="card-body">
+  <div class="card-title">רולרבליידס ROCES Compy מתכווננים</div>
+  <div class="card-price-row"><div class="card-price">₪120</div><span class="badge">זמין</span></div>
+</div></a>
+
+<a class="card" href="https://www.facebook.com/marketplace/item/37776315188648574/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/761516695_1725626155338905_4634044468196613787_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=BISqEClf5GQQ7kNvwF1xXgp&_nc_oc=AdpTFJRBSzVNg4ND6HJbSs1GP8MB9yNeoMYcO8gaAn6QHxVqhoSsCGWcVA5l9m8hE7E&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQH6LJwy_clNJyiOX9l24iOttmk5yz51Eci2HhvSJ0TEFw&oe=6A77F22C" alt="CAMPLUS chairs"></div>
+<div class="card-body">
+  <div class="card-title">זוג כיסאות קמפינג מפוארים מתקפלים CAMPLUS</div>
   <div class="card-price-row"><div class="card-price">₪100</div><span class="badge">זמין</span></div>
 </div></a>
 
 </div>
 
-<!-- ═══ אופניים ורכב ═══ -->
-<div class="category-title">אופניים ורכב</div>
+<!-- ═══ רכב ושונות ═══ -->
+<div class="category-title">רכב ושונות</div>
 <div class="grid">
 
 <a class="card" href="https://www.facebook.com/marketplace/item/37647564361501505/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756045769_1070294902616257_3117437253047443142_n.jpg?stp=c80.0.480.480a_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=qu3PeNT8M7IQ7kNvwEe74F1&_nc_oc=AdpZgkHlUCsJFAPaYZ6-rAsHaTlxhLXaL_-OLRr8IneSyQyZFlNub9exPuuQprjzcjU&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=vnPwex9cqsjf5WaJZZD2cw&_nc_ss=7b2a8&oh=00_AQBScnvr7ClT5ez-9_whpUFM4pBTqPKWBNRmjuwOta73zg&oe=6A6AE797" alt="Kia Sportage"></div>
+<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756045769_1070294902616257_3117437253047443142_n.jpg?stp=c80.0.480.480a_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=gWRFTLkpqooQ7kNvwFmU9Ss&_nc_oc=AdpbPUfnYW9JyXXLb9CdyCQ7k1vZYFwYDS2tNR5H5hv1V_P1eXeq6V5M0iUyIY6oeHM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQH5s7kyAFh64qNTgWQBak_h309ThvOb-xo1LJGOEUKvVg&oe=6A781697" alt="Kia Sportage"></div>
 <div class="card-body">
-  <div class="card-title">קיה ספורטז' 2019</div>
-  <div class="card-detail">יד 2, 74,000 ק"מ, גג פנורמי, טסט 02/2027</div>
-  <div class="card-price-row"><div class="card-price">₪85,000</div><span class="badge">זמין</span></div>
+  <div class="card-title">2019 Kia Sportage</div>
+  <div class="card-price-row"><div class="card-price">צרו קשר</div><span class="badge">זמין</span></div>
 </div></a>
 
-
-<a class="card" href="https://www.facebook.com/marketplace/item/35881472601451204/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/692328464_1297097039062010_6289075427198459377_n.jpg?stp=c115.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=iy5KiuqGQWsQ7kNvwExCjHW&_nc_oc=AdrG3AX3QsUnWin9Zwzpbl1KMVsK4OVI2aAVtYMqiKQ4aCejB6vz4KDH4_PdQMiswKY&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=NKc6ESveUTg6_-VqNcMDfg&_nc_ss=7b2a8&oh=00_AQAydR5Ut-UywnoWNBtkqJrzXkRUGNTV4UaWiTGi8FzcjQ&oe=6A6ABFE0" alt="Yond Storm"></div>
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/756045770_1595371645632145_2441296263142194781_n.jpg?stp=c0.95.526.526a_dst-jpg_p526x395_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=9R2m2d6boeIQ7kNvwEhwK52&_nc_oc=Adr669xqqyvW8Gq4sHeb6VYZ1SzKH6sjBvCkVFy3pbjGCJHVwDvfPM7KDRg0izF0mxk&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQHgq115i0p2qE9zryuck4aqCgpiqsryY_RrgMWI9f0I6g&oe=6A780EE6" alt="Tanakh"></div>
 <div class="card-body">
-  <div class="card-title">אופני הרים לילדים Yond Storm 20</div>
-  <div class="card-detail">שלדת אלומיניום</div>
-  <div class="card-price-row"><div class="card-price">₪650</div><span class="badge">זמין</span></div>
-</div></a>
-
-</div>
-
-<!-- ═══ שונות ═══ -->
-<div class="category-title">שונות</div>
-<div class="grid">
-
-<a class="card" href="https://www.facebook.com/marketplace/item/27573626528914551/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/756045770_1595371645632145_2441296263142194781_n.jpg?stp=c0.95.526.526a_dst-jpg_p526x395_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=4FwjuqpmfhkQ7kNvwHS6WWR&_nc_oc=Adp-B6StspOuyK2Pfge6urG5mrfwCE4CpQKsc5tvPkGDq1NW3wMbK4y6TMhG4rcap7I&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=vnPwex9cqsjf5WaJZZD2cw&_nc_ss=7b2a8&oh=00_AQBv2s9hsBM6OadZTLE17Ott3fTIwYxkTcArpLO35c8kiA&oe=6A6ADFE6" alt="Tanakh"></div>
-<div class="card-body">
-  <div class="card-title">תנ"ך קורן מהדורת מעלות</div>
-  <div class="card-detail">כריכה כתומה מהודרת - חדש</div>
-  <div class="card-price-row"><div class="card-price">₪70</div><span class="badge">זמין</span></div>
-</div></a>
+  <div class="card-title">תנ"ך קורן מהדורת מעלות - כתום</div>
+  <div class="card-price-row"><div class="card-price">₪70</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 </div>
 
@@ -451,7 +537,7 @@ a { text-decoration: none; color: inherit; }
   <p>כל הפריטים במצב מעולה</p>
   <p>איסוף מרחוב הכלנית 8, כפר סבא</p>
   <p style="margin-top: 8px;">ליצירת קשר: איתי - 0524577105</p>
-  <p style="margin-top: 16px; font-size: 0.75rem; opacity: 0.5;">עודכן יולי 2026</p>
+  <p style="margin-top: 16px; font-size: 0.75rem; opacity: 0.5;">עודכן אוגוסט 2026</p>
 </div>
 
 <script>
