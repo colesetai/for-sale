@@ -185,6 +185,64 @@ a { text-decoration: none; color: inherit; }
 }
 .badge-pending { border-color: var(--gold); color: var(--gold); }
 .badge-sold { border-color: #999; color: #999; text-decoration: line-through; }
+.controls {
+  max-width: 1200px;
+  margin: 0 auto 8px;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.search-box {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 16px;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 1rem;
+  border: 1px solid rgba(196,151,58,0.3);
+  background: var(--cream);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-box::placeholder { color: #B0A090; }
+.search-box:focus { border-color: var(--gold); }
+.control-select {
+  padding: 10px 14px;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 0.9rem;
+  border: 1px solid rgba(196,151,58,0.3);
+  background: var(--cream);
+  color: var(--ink);
+  cursor: pointer;
+  outline: none;
+}
+.control-select:focus { border-color: var(--gold); }
+.filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 7px 14px;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 0.85rem;
+  border: 1px solid rgba(196,151,58,0.3);
+  background: transparent;
+  color: #7A6A58;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+.filter-btn.active { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
+.no-results {
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #8A7A68;
+  display: none;
+}
+.card-hidden { display: none !important; }
+.category-hidden { display: none !important; }
 .footer {
   text-align: center;
   padding: 48px 24px 0;
@@ -203,10 +261,27 @@ a { text-decoration: none; color: inherit; }
 </div>
 
 <div class="stats">
-  <div><div class="stat-num">57</div><div class="stat-label">פריטים למכירה</div></div>
-  <div><div class="stat-num">12</div><div class="stat-label">נמכרו</div></div>
+  <div><div class="stat-num">55</div><div class="stat-label">פריטים למכירה</div></div>
+  <div><div class="stat-num">14</div><div class="stat-label">נמכרו</div></div>
   <div><div class="stat-num">6</div><div class="stat-label">קטגוריות</div></div>
 </div>
+
+<div class="controls">
+  <input type="text" class="search-box" id="searchBox" placeholder="חיפוש פריט...">
+  <select class="control-select" id="sortSelect">
+    <option value="default">מיון: ברירת מחדל</option>
+    <option value="price-asc">מחיר: נמוך לגבוה</option>
+    <option value="price-desc">מחיר: גבוה לנמוך</option>
+  </select>
+  <div class="filter-btns">
+    <button class="filter-btn active" data-filter="all">הכל</button>
+    <button class="filter-btn" data-filter="available">זמינים</button>
+    <button class="filter-btn" data-filter="pending">ממתינים</button>
+    <button class="filter-btn" data-filter="sold">נמכרו</button>
+  </div>
+</div>
+
+<div class="no-results" id="noResults">לא נמצאו פריטים תואמים</div>
 
 <!-- ═══ אלקטרוניקה ═══ -->
 <div class="category-title">אלקטרוניקה ומסכים</div>
@@ -288,12 +363,12 @@ a { text-decoration: none; color: inherit; }
   <div class="card-price-row"><div class="card-price">₪300</div><span class="badge">זמין</span></div>
 </div></a>
 
-<div class="card card-sold">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/755405296_1712327950038552_2494358691901537945_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=og8Tkuh4rewQ7kNvwEhUKZA&_nc_oc=AdpaF8l5abhyxNTP9kYSTOXkOOqZoFop0hovd8uJML7a_wKiPuFutRK7-6VLlK-PLrk&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQEC8GJYaS3fBBeCkLCuifOrKzz6fC3Xe_N573pGQfJ1lg&oe=6A780F05" alt="Braun"></div>
+<div class="card">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/755405296_1712327950038552_2494358691901537945_n.webp?stp=c0.0.526.526a_dst-webp_p526x395&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=mY2Qy1EnWVAQ7kNvwH6qWwC&_nc_oc=AdrB6MIAkj_HMpVoTfZBM2WF8OZphQWOVhu3Ekrgl2MKOk35RVSswNPJzq6YzV-_g2o&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=F8SaWr25N4flztCOHO2U-A&_nc_ss=7b2a8&oh=00_AQG4I67HC2reITpyl6P5_41XEnhKzbgYV-pRJL-SlGSQYA&oe=6A7B5AC5" alt="Braun"></div>
 <div class="card-body">
   <div class="card-title">מעבד מזון Braun CombiMax 650</div>
   <div class="card-detail">600W</div>
-  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge badge-sold">נמכר</span></div>
+  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge badge-pending">ממתין</span></div>
 </div></div>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/27933654126263907/" target="_blank">
@@ -424,13 +499,13 @@ a { text-decoration: none; color: inherit; }
   <div class="card-price-row"><div class="card-price">₪1,000</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/28047305188290512/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/764103399_1545334666965917_8340694290455010287_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=BpsCnbiiGK0Q7kNvwEnhIn_&_nc_oc=AdrDv-lbyCUyGYr6AOhHiHF9eNnEjZ-oHvdPssGWJEpLZmLGM7oic2TMX71VQzSL3Sw&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=xNDzwRUTj4HPa4E28L-daw&_nc_ss=7b2a8&oh=00_AQF97TAASTQDytYlBiyWnkPB5qOk8fmcsUTpd1IIj946zA&oe=6A78E14C" alt="IKEA BILLY"></div>
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/764103399_1545334666965917_8340694290455010287_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=BpsCnbiiGK0Q7kNvwEnhIn_&_nc_oc=AdrDv-lbyCUyGYr6AOhHiHF9eNnEjZ-oHvdPssGWJEpLZmLGM7oic2TMX71VQzSL3Sw&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=h67EAtqFHwF0hSfm5av4Kg&_nc_ss=7b2a8&oh=00_AQGe_Z8udcEAGHtSaszDOiil6g4x4sdEuHepDfe8VLD8oQ&oe=6A7B4C0C" alt="IKEA BILLY"></div>
 <div class="card-body">
   <div class="card-title">כוורת ספרים IKEA BILLY לבנה</div>
   <div class="card-detail">40x28x106 ס"מ</div>
-  <div class="card-price-row"><div class="card-price">₪99</div><span class="badge">זמין</span></div>
-</div></a>
+  <div class="card-price-row"><div class="card-price">₪99</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/27976610458614939/" target="_blank">
 <div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/766305294_2264552000986556_3503401967860185940_n.jpg?stp=c0.132.526.526a_dst-jpg_p526x395_tt6&_nc_cat=106&ccb=1-7&_nc_sid=247b10&_nc_ohc=cEcXG7ph77cQ7kNvwFE0hy9&_nc_oc=Adq2P5vQDBDD7vy-_kCKW7YvC1xcCPilgBaYiXrqX-VMMgnTHiLuVMv71IR-2X__SZg&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=xNDzwRUTj4HPa4E28L-daw&_nc_ss=7b2a8&oh=00_AQFGUVuf01hkxDYF9COs7wQ1RqVWvqr4QFrFw_wI5k1IEA&oe=6A78E323" alt="Dining chairs"></div>
@@ -576,12 +651,12 @@ a { text-decoration: none; color: inherit; }
   <div class="card-price-row"><div class="card-price">₪450</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/26037370092627730/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/762556290_27264418356587440_6397792183931487015_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=KkHLWZ0uay4Q7kNvwFZdp1q&_nc_oc=AdoXWMLcsrzOWiNB_PZRIlmSIMneK0HYeyhFavGdf4Aj24nFiGbWcpnp92QX8Yo4-L8&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=z9lNztv7Ir6QBINphC6DcA&_nc_ss=7b2a8&oh=00_AQHq9tRD-FQ7ayaxEWoGBfXMC0-UeCMMeKToRT2YMUtXyg&oe=6A78C204" alt="Toddler bed"></div>
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/762556290_27264418356587440_6397792183931487015_n.jpg?stp=c0.0.500.500a_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_ohc=XjvlUfpN6sQQ7kNvwH90cip&_nc_oc=Adqx5rPisfEE0DG0nhVng_fNCcFlPJxMfae-FI9YdYB2I2FY5aofCO3wCXEM_1M4qQE&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=gvSxqASc5AZ0EvnKFy4RCg&_nc_ss=7b2a8&oh=00_AQENczbso89OJzBgMmces5CkIFbkNNfqyo2tJbXINhR8Hw&oe=6A7B6504" alt="Toddler bed"></div>
 <div class="card-body">
   <div class="card-title">מיטת מעבר לילדים + מזרון נושם</div>
-  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge">זמין</span></div>
-</div></a>
+  <div class="card-price-row"><div class="card-price">₪150</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/38497495373182699/" target="_blank">
 <div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/764847070_1362523846068325_495991287344448217_n.jpg?stp=c0.0.500.500a_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=247b10&_nc_ohc=ptZT2z1rKlAQ7kNvwGYVu-7&_nc_oc=AdrW87TV6jiMXcEff-7Ikd0ga0MYBx58UsqIN2Fffvkzx9tOPFoi01-Ggjko2bWOxOs&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=xNDzwRUTj4HPa4E28L-daw&_nc_ss=7b2a8&oh=00_AQFBUEdKNq9gqlppvgENtltxkPPmuKei-H7uGOFJhpDflQ&oe=6A78D4B3" alt="Toddler helmet"></div>
@@ -639,7 +714,7 @@ a { text-decoration: none; color: inherit; }
 <div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/762447695_1019586787528670_5019361682610921772_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=btuUUCUulkcQ7kNvwFtw7yo&_nc_oc=AdqyJz89kePUk4G1uM45EqjFGKqUZ2sxZ5rOsvq-c_FKYdogzW5kE3YbQ9b9ghbmeiU&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=j2LMEibDFuRyKuEi_Cy_Pw&_nc_ss=7b2a8&oh=00_AQE8jwysUAwGiBR7MsMqie6hz61G8o3Ky1e5npDA2QMr1g&oe=6A781048" alt="Playmager magnets"></div>
 <div class="card-body">
   <div class="card-title">פליימאגר סט מגנטים לונה פארק 168 חלקים</div>
-  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge">זמין</span></div>
+  <div class="card-price-row"><div class="card-price">₪100</div><span class="badge badge-pending">ממתין</span></div>
 </div></div>
 
 <div class="card card-sold">
@@ -677,20 +752,20 @@ a { text-decoration: none; color: inherit; }
   <div class="card-price-row"><div class="card-price">₪200</div><span class="badge">זמין</span></div>
 </div></a>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/27855203080804805/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295006_1697750021529324_2958557119899498922_n.jpg?stp=c0.10.437.437a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=i62T2s9zQFUQ7kNvwEhetKv&_nc_oc=AdosOY3e_wy7gvHC-riV1w-8IXR8vYNAolM2eL6CTr8JrINDlQf9cU1nTnr0Pxwk6DI&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQGruNVwJGrabjs1kVfykYEG5K1l2ZHIfRX9XZfeJd3pIA&oe=6A77FF96" alt="Camping wagon"></div>
+<div class="card">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295006_1697750021529324_2958557119899498922_n.jpg?stp=c0.10.437.437a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=247b10&_nc_ohc=i62T2s9zQFUQ7kNvwEhetKv&_nc_oc=AdosOY3e_wy7gvHC-riV1w-8IXR8vYNAolM2eL6CTr8JrINDlQf9cU1nTnr0Pxwk6DI&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=dkvN8oxdnnmXB9Wm3JCmfg&_nc_ss=7b2a8&oh=00_AQFdmw-FFdbl3ywyjQv7oearFC8HUnT5TigW2NB26JGaGQ&oe=6A7B4B56" alt="Camping wagon"></div>
 <div class="card-body">
   <div class="card-title">עגלת קמפינג מתקפלת Kamopot</div>
-  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge">זמין</span></div>
-</div></a>
+  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge badge-pending">ממתין</span></div>
+</div></div>
 
-<a class="card" href="https://www.facebook.com/marketplace/item/37331317599847392/" target="_blank">
-<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295036_1316641087215771_5793653696342001842_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=DJ7BK_hV4t0Q7kNvwEjETZJ&_nc_oc=AdpO2fdSqbHQEGZHjtb0Ssp1pFQ4BXorat9Q9r1-M78ynQU2BJ1SOgIoWhkI2m1iieE&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=jkgOclF7PaJA1D_2cMqTbw&_nc_ss=7b2a8&oh=00_AQHKLMteroo9pfHe4W3sa-RP-nbHNopUnbWU86ZcFW-HHg&oe=6A780716" alt="Foam mats"></div>
+<div class="card card-sold">
+<div class="img-wrap"><img src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t45.5328-4/760295036_1316641087215771_5793653696342001842_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x395_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_ohc=Fvdsk1ylrOUQ7kNvwFOQIlk&_nc_oc=AdrhS9qt0EFBGwZivKTbJf7s6l6plXfWLgBgWe8xq4oHfZOQuh51E-oJ91MIzai7CE0&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=dkvN8oxdnnmXB9Wm3JCmfg&_nc_ss=7b2a8&oh=00_AQGnFvxEjwp565EeirecCXb0YpZSuv3fe4Qkh_VTcSSWzg&oe=6A7B52D6" alt="Foam mats"></div>
 <div class="card-body">
   <div class="card-title">4 מזרני ספוג מתגלגלים לקמפינג ואירוח</div>
   <div class="card-detail">נמכרים יחד</div>
-  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge badge-pending">ממתין</span></div>
-</div></a>
+  <div class="card-price-row"><div class="card-price">₪180</div><span class="badge badge-sold">נמכר</span></div>
+</div></div>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/28248389014779533/" target="_blank">
 <div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/761563003_1393559849372266_5033589090263472122_n.jpg?stp=c0.0.526.526a_dst-jpg_p526x395_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=mceoNm9qp74Q7kNvwHEylNW&_nc_oc=Adqmfx10ytBaCTvCc4PFTacwPNAelybg0LYqKZ8mx62kRZ-7a0IEqs9DGKnIrwrxNHM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=5gEIro0VjtPishFz2IzR_Q&_nc_ss=7b2a8&oh=00_AQEIRxczU5N34ymWg1_jJMZSkHqEr2sEzDmj5j8P0FEqlQ&oe=6A77F5EB" alt="ROCES rollerblades"></div>
@@ -736,12 +811,12 @@ a { text-decoration: none; color: inherit; }
   <div class="card-price-row"><div class="card-price">₪100</div><span class="badge">זמין</span></div>
 </div></a>
 
-<div class="card">
-<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/686919007_942219038434366_7273325033537455104_n.jpg?stp=c89.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=MIXSnq2FkUMQ7kNvwHkqvO1&_nc_oc=AdoOYJzqDHkeDxr2nwOUVbLbiRt8nnyKeaPdB-XS41nG7Qn1BuZWtwivVPdX4KnGJt0&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=vL12bNZaNGMLzADyrC2phw&_nc_ss=7b2a8&oh=00_AQHrfJ9RgQaG01z4JT2M4CRadYQhUZH1AMfvFuctz57sfg&oe=6A78EC08" alt="Specialized Riprock"></div>
+<a class="card" href="https://www.facebook.com/marketplace/item/27045266675103446/" target="_blank">
+<div class="img-wrap"><img src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t45.5328-4/686919007_942219038434366_7273325033537455104_n.jpg?stp=c89.0.540.540a_dst-jpg_p180x540_tt6&_nc_cat=109&ccb=1-7&_nc_sid=247b10&_nc_ohc=GH2ybz6qx_UQ7kNvwG-lUPl&_nc_oc=Ados17IHcaMqVyx11af2hqC9nbrpfSWSw4Yb3B47c11cb1S0YFv_bUxos4yH_v9EW9U&_nc_zt=23&_nc_ht=scontent.ftlv18-1.fna&_nc_gid=Ce70KUv3GKfNH2Tfjt4sTA&_nc_ss=7b2a8&oh=00_AQHaGugyJz7r5YoHDwCZmp1_lHpS02347Ss1A0X6bBSFDQ&oe=6A7B56C8" alt="Specialized Riprock"></div>
 <div class="card-body">
   <div class="card-title">אופני ילדים Specialized Riprock 16</div>
-  <div class="card-price-row"><div class="card-price">₪850</div><span class="badge badge-pending">ממתין</span></div>
-</div></div>
+  <div class="card-price-row"><div class="card-price">₪850</div><span class="badge">זמין</span></div>
+</div></a>
 
 <a class="card" href="https://www.facebook.com/marketplace/item/37647564361501505/" target="_blank">
 <div class="img-wrap"><img src="https://scontent.fsdv1-2.fna.fbcdn.net/v/t45.5328-4/756045769_1070294902616257_3117437253047443142_n.jpg?stp=c80.0.480.480a_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=247b10&_nc_ohc=gWRFTLkpqooQ7kNvwFmU9Ss&_nc_oc=AdpbPUfnYW9JyXXLb9CdyCQ7k1vZYFwYDS2tNR5H5hv1V_P1eXeq6V5M0iUyIY6oeHM&_nc_zt=23&_nc_ht=scontent.fsdv1-2.fna&_nc_gid=wycFTjfrHZWPASwcQsA5GA&_nc_ss=7b2a8&oh=00_AQH5s7kyAFh64qNTgWQBak_h309ThvOb-xo1LJGOEUKvVg&oe=6A781697" alt="Kia Sportage"></div>
@@ -773,5 +848,130 @@ document.querySelectorAll('.img-wrap img').forEach(function(img) {
     this.parentElement.innerHTML = '<div class="fallback">' + this.alt + '</div>';
   };
 });
+
+(function() {
+  var searchBox = document.getElementById('searchBox');
+  var sortSelect = document.getElementById('sortSelect');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var noResults = document.getElementById('noResults');
+  var currentFilter = 'all';
+
+  function getCardStatus(card) {
+    if (card.classList.contains('card-sold')) return 'sold';
+    var badge = card.querySelector('.badge');
+    if (badge && badge.classList.contains('badge-pending')) return 'pending';
+    if (badge && badge.classList.contains('badge-sold')) return 'sold';
+    return 'available';
+  }
+
+  function getCardPrice(card) {
+    var priceEl = card.querySelector('.card-price');
+    if (!priceEl) return 0;
+    var txt = priceEl.textContent.replace(/[^\d]/g, '');
+    return txt ? parseInt(txt, 10) : 0;
+  }
+
+  function getCardText(card) {
+    var title = card.querySelector('.card-title');
+    var detail = card.querySelector('.card-detail');
+    return ((title ? title.textContent : '') + ' ' + (detail ? detail.textContent : '')).toLowerCase();
+  }
+
+  function applyFilters() {
+    var query = searchBox.value.toLowerCase().trim();
+    var grids = document.querySelectorAll('.grid');
+    var totalVisible = 0;
+
+    grids.forEach(function(grid) {
+      var cards = Array.from(grid.children).filter(function(el) {
+        return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
+      });
+      var visibleInGrid = 0;
+
+      cards.forEach(function(card) {
+        var status = getCardStatus(card);
+        var text = getCardText(card);
+        var matchFilter = currentFilter === 'all' || status === currentFilter;
+        var matchSearch = !query || text.indexOf(query) !== -1;
+        if (matchFilter && matchSearch) {
+          card.classList.remove('card-hidden');
+          visibleInGrid++;
+        } else {
+          card.classList.add('card-hidden');
+        }
+      });
+
+      var categoryTitle = grid.previousElementSibling;
+      if (categoryTitle && categoryTitle.classList.contains('category-title')) {
+        if (visibleInGrid === 0) {
+          categoryTitle.classList.add('category-hidden');
+          grid.classList.add('category-hidden');
+        } else {
+          categoryTitle.classList.remove('category-hidden');
+          grid.classList.remove('category-hidden');
+        }
+      }
+      totalVisible += visibleInGrid;
+    });
+
+    noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+  }
+
+  function applySort() {
+    var sortVal = sortSelect.value;
+    if (sortVal === 'default') {
+      // restore original DOM order
+      document.querySelectorAll('.grid').forEach(function(grid) {
+        var cards = Array.from(grid.children).filter(function(el) {
+          return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
+        });
+        cards.sort(function(a, b) {
+          return (parseInt(a.dataset.origIndex, 10) || 0) - (parseInt(b.dataset.origIndex, 10) || 0);
+        });
+        cards.forEach(function(c) { grid.appendChild(c); });
+      });
+      return;
+    }
+    var asc = sortVal === 'price-asc';
+    document.querySelectorAll('.grid').forEach(function(grid) {
+      var cards = Array.from(grid.children).filter(function(el) {
+        return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
+      });
+      cards.sort(function(a, b) {
+        var pa = getCardPrice(a), pb = getCardPrice(b);
+        // items with 0 price go to end
+        if (pa === 0 && pb === 0) return 0;
+        if (pa === 0) return 1;
+        if (pb === 0) return -1;
+        return asc ? pa - pb : pb - pa;
+      });
+      cards.forEach(function(c) { grid.appendChild(c); });
+    });
+  }
+
+  // store original index for default sort restore
+  document.querySelectorAll('.grid').forEach(function(grid) {
+    var cards = Array.from(grid.children).filter(function(el) {
+      return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
+    });
+    cards.forEach(function(c, i) { c.dataset.origIndex = i; });
+  });
+
+  searchBox.addEventListener('input', applyFilters);
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  sortSelect.addEventListener('change', function() {
+    applySort();
+    applyFilters();
+  });
+})();
 </script>
 </body></html>
