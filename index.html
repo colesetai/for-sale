@@ -283,6 +283,8 @@ a { text-decoration: none; color: inherit; }
 
 <div class="no-results" id="noResults">לא נמצאו פריטים תואמים</div>
 
+<div class="grid category-hidden" id="sortedGrid"></div>
+
 <!-- ═══ אלקטרוניקה ═══ -->
 <div class="category-title">אלקטרוניקה ומסכים</div>
 <div class="grid">
@@ -854,7 +856,32 @@ document.querySelectorAll('.img-wrap img').forEach(function(img) {
   var sortSelect = document.getElementById('sortSelect');
   var filterBtns = document.querySelectorAll('.filter-btn');
   var noResults = document.getElementById('noResults');
+  var sortedGrid = document.getElementById('sortedGrid');
   var currentFilter = 'all';
+  var isSorted = false;
+
+  // category grids (exclude sortedGrid)
+  var categoryGrids = Array.from(document.querySelectorAll('.grid')).filter(function(g) {
+    return g.id !== 'sortedGrid';
+  });
+
+  function isCard(el) {
+    return el.classList && el.classList.contains('card');
+  }
+
+  function getCards(grid) {
+    return Array.from(grid.children).filter(isCard);
+  }
+
+  function getAllCards() {
+    var cards = [];
+    categoryGrids.forEach(function(grid) {
+      cards = cards.concat(getCards(grid));
+    });
+    // also grab any currently in sortedGrid
+    cards = cards.concat(getCards(sortedGrid));
+    return cards;
+  }
 
   function getCardStatus(card) {
     if (card.classList.contains('card-sold')) return 'sold';
@@ -877,85 +904,118 @@ document.querySelectorAll('.img-wrap img').forEach(function(img) {
     return ((title ? title.textContent : '') + ' ' + (detail ? detail.textContent : '')).toLowerCase();
   }
 
+  // store original parent + index for restoring default order
+  getAllCards().forEach(function(card) {
+    card._origParent = card.parentElement;
+    card._origIndex = Array.from(card.parentElement.children).filter(isCard).indexOf(card);
+  });
+
+  function showCategories() {
+    categoryGrids.forEach(function(grid) {
+      grid.classList.remove('category-hidden');
+      var title = grid.previousElementSibling;
+      if (title && title.classList.contains('category-title')) {
+        title.classList.remove('category-hidden');
+      }
+    });
+    sortedGrid.classList.add('category-hidden');
+  }
+
+  function hideCategories() {
+    categoryGrids.forEach(function(grid) {
+      grid.classList.add('category-hidden');
+      var title = grid.previousElementSibling;
+      if (title && title.classList.contains('category-title')) {
+        title.classList.add('category-hidden');
+      }
+    });
+    sortedGrid.classList.remove('category-hidden');
+  }
+
+  function restoreDefault() {
+    // move cards back to original grids
+    var allCards = getAllCards();
+    allCards.forEach(function(card) {
+      if (card._origParent && card.parentElement !== card._origParent) {
+        card._origParent.appendChild(card);
+      }
+    });
+    // restore original order within each grid
+    categoryGrids.forEach(function(grid) {
+      var cards = getCards(grid);
+      cards.sort(function(a, b) { return (a._origIndex || 0) - (b._origIndex || 0); });
+      cards.forEach(function(c) { grid.appendChild(c); });
+    });
+    showCategories();
+    isSorted = false;
+  }
+
+  function applySortedView() {
+    var asc = sortSelect.value === 'price-asc';
+    var allCards = getAllCards();
+    allCards.sort(function(a, b) {
+      var pa = getCardPrice(a), pb = getCardPrice(b);
+      if (pa === 0 && pb === 0) return 0;
+      if (pa === 0) return 1;
+      if (pb === 0) return -1;
+      return asc ? pa - pb : pb - pa;
+    });
+    hideCategories();
+    allCards.forEach(function(card) { sortedGrid.appendChild(card); });
+    isSorted = true;
+  }
+
   function applyFilters() {
     var query = searchBox.value.toLowerCase().trim();
-    var grids = document.querySelectorAll('.grid');
     var totalVisible = 0;
 
-    grids.forEach(function(grid) {
-      var cards = Array.from(grid.children).filter(function(el) {
-        return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
-      });
-      var visibleInGrid = 0;
-
-      cards.forEach(function(card) {
+    if (isSorted) {
+      // filter within the sorted flat grid
+      getCards(sortedGrid).forEach(function(card) {
         var status = getCardStatus(card);
         var text = getCardText(card);
         var matchFilter = currentFilter === 'all' || status === currentFilter;
         var matchSearch = !query || text.indexOf(query) !== -1;
         if (matchFilter && matchSearch) {
           card.classList.remove('card-hidden');
-          visibleInGrid++;
+          totalVisible++;
         } else {
           card.classList.add('card-hidden');
         }
       });
-
-      var categoryTitle = grid.previousElementSibling;
-      if (categoryTitle && categoryTitle.classList.contains('category-title')) {
-        if (visibleInGrid === 0) {
-          categoryTitle.classList.add('category-hidden');
-          grid.classList.add('category-hidden');
-        } else {
-          categoryTitle.classList.remove('category-hidden');
-          grid.classList.remove('category-hidden');
+    } else {
+      // filter within category grids, hide empty categories
+      categoryGrids.forEach(function(grid) {
+        var cards = getCards(grid);
+        var visibleInGrid = 0;
+        cards.forEach(function(card) {
+          var status = getCardStatus(card);
+          var text = getCardText(card);
+          var matchFilter = currentFilter === 'all' || status === currentFilter;
+          var matchSearch = !query || text.indexOf(query) !== -1;
+          if (matchFilter && matchSearch) {
+            card.classList.remove('card-hidden');
+            visibleInGrid++;
+          } else {
+            card.classList.add('card-hidden');
+          }
+        });
+        var categoryTitle = grid.previousElementSibling;
+        if (categoryTitle && categoryTitle.classList.contains('category-title')) {
+          if (visibleInGrid === 0) {
+            categoryTitle.classList.add('category-hidden');
+            grid.classList.add('category-hidden');
+          } else {
+            categoryTitle.classList.remove('category-hidden');
+            grid.classList.remove('category-hidden');
+          }
         }
-      }
-      totalVisible += visibleInGrid;
-    });
+        totalVisible += visibleInGrid;
+      });
+    }
 
     noResults.style.display = totalVisible === 0 ? 'block' : 'none';
   }
-
-  function applySort() {
-    var sortVal = sortSelect.value;
-    if (sortVal === 'default') {
-      // restore original DOM order
-      document.querySelectorAll('.grid').forEach(function(grid) {
-        var cards = Array.from(grid.children).filter(function(el) {
-          return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
-        });
-        cards.sort(function(a, b) {
-          return (parseInt(a.dataset.origIndex, 10) || 0) - (parseInt(b.dataset.origIndex, 10) || 0);
-        });
-        cards.forEach(function(c) { grid.appendChild(c); });
-      });
-      return;
-    }
-    var asc = sortVal === 'price-asc';
-    document.querySelectorAll('.grid').forEach(function(grid) {
-      var cards = Array.from(grid.children).filter(function(el) {
-        return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
-      });
-      cards.sort(function(a, b) {
-        var pa = getCardPrice(a), pb = getCardPrice(b);
-        // items with 0 price go to end
-        if (pa === 0 && pb === 0) return 0;
-        if (pa === 0) return 1;
-        if (pb === 0) return -1;
-        return asc ? pa - pb : pb - pa;
-      });
-      cards.forEach(function(c) { grid.appendChild(c); });
-    });
-  }
-
-  // store original index for default sort restore
-  document.querySelectorAll('.grid').forEach(function(grid) {
-    var cards = Array.from(grid.children).filter(function(el) {
-      return el.classList.contains('card') || (el.tagName === 'A' && el.classList.contains('card'));
-    });
-    cards.forEach(function(c, i) { c.dataset.origIndex = i; });
-  });
 
   searchBox.addEventListener('input', applyFilters);
 
@@ -969,7 +1029,11 @@ document.querySelectorAll('.img-wrap img').forEach(function(img) {
   });
 
   sortSelect.addEventListener('change', function() {
-    applySort();
+    if (sortSelect.value === 'default') {
+      restoreDefault();
+    } else {
+      applySortedView();
+    }
     applyFilters();
   });
 })();
